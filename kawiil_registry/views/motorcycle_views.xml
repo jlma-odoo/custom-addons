@@ -18,6 +18,7 @@
                             <separator string="Motorcycle settings"/>
                             <field name="registry_number"/>
                             <field name="vin"/>
+                            <field name="license_plate"/>
                         </group>
                         <group>
                             <separator string="User settings"/>

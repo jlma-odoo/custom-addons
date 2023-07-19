@@ -1,0 +1,6 @@
+new = env['motorcycle.registry'].create({'vin':'VIN123','registry_number':'reg123','first_name':'pepito','last_name':'perez','current_mileage':1100.0})
+datos = env['motorcycle.registry'].search([])
+datos.search_read([(('current_mileage','<',1000))],[])
+datos.search_read([('vin','!=',False),('license_plate','=',False)],[])
+datos.search_read(['|',('vin','!=',False),('license_plate','!=',False)],[])
+new.unlink()

@@ -1,3 +1,4 @@
+from odoo import fields,models,api
 class ProductTemplate(models.Model):
         _inherit = 'product.template'
         
@@ -18,5 +19,5 @@ class ProductTemplate(models.Model):
         range = fields.Float()
         curb_weight = fields.Float()
         make = fields.Char()
-        model =n fields.Char()
+        model = fields.Char()
         

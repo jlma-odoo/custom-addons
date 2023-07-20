@@ -16,23 +16,33 @@ class MotorcycleRegistry(models.Model):
     owner_id = fields.Many2one(comodel_name="res.partner", string='Owner',ondelete='cascade')
     email = fields.Char(related='owner_id.email')
     phone = fields.Char(related='owner_id.phone')
-    make = fields.Char(compute='_compute_registry_data')
-    model = fields.Char(compute='_compute_registry_data')
-    year = fields.Char(compute='_compute_registry_data')
+    make = fields.Char(compute='_compute_registry_make')
+    model = fields.Char(compute='_compute_registry_model')
+    year = fields.Char(compute='_compute_registry_year')
    
 
 
     @api.depends('vin')
-    def _compute_registry_data(self):
+    def _compute_registry_make(self):
         self.make =''
-        self.model =''
+        for motorcycle in self:
+            if not motorcycle.vin == False:
+                    motorcycle.make = motorcycle.vin[0:2]
+
+    @api.depends('vin')
+    def _compute_registry_year(self):
         self.year =''
 
         for motorcycle in self:
             if not motorcycle.vin == False:
-                    motorcycle.make = motorcycle.vin[0:2]
-                    motorcycle.model = motorcycle.vin[2:4]
                     motorcycle.year = motorcycle.vin[4:6]
+
+    @api.depends('vin')
+    def _compute_registry_model(self):
+        self.model =''
+        for motorcycle in self:
+            if not motorcycle.vin == False:
+                    motorcycle.model = motorcycle.vin[2:4]
 
 
     @api.model_create_multi

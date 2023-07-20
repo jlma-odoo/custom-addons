@@ -4,8 +4,8 @@ import re
 
 class MotorcycleRegistry(models.Model):
     _name = "motorcycle.registry"
-    _rec_name = "registry_number"
     _description = "modulo de prueba"
+    
     registry_number = fields.Char(required=True,default='CRM0000',readonly=True)
     vin = fields.Char(string = "Código de identificación (vin)",required=True)
     picture = fields.Image(string = "Foto")
@@ -19,6 +19,12 @@ class MotorcycleRegistry(models.Model):
     make = fields.Char(compute='_compute_registry_data')
     model = fields.Char(compute='_compute_registry_data')
     year = fields.Char(compute='_compute_registry_data')
+    '''taxes_id = fields.Many2many('account.tax', 'motorcycle_taxes_rel_', 'motorcycle_id', 'tax_id', help="Default taxes used when selling the product.", string='Customer Taxes',
+        domain=[('type_tax_use', '=', 'sale')], default=lambda self: self.env.company.account_sale_tax_id)
+    supplier_taxes_id = fields.Many2many('account.tax', 'motorcycle_supplier_taxes_rel', 'motorcycle_id', 'tax_id', string='Vendor Taxes', help='Default taxes used when buying the product.',
+        domain=[('type_tax_use', '=', 'purchase')], default=lambda self: self.env.company.account_purchase_tax_id)
+    '''
+
 
     @api.depends('vin')
     def _compute_registry_data(self):
@@ -54,6 +60,8 @@ class MotorcycleRegistry(models.Model):
             regex = r'[A-Z][A-Z]?[A-Z]?[A-Z]?[0-9][0-9]?[0-9]?[A-Z]?[A-Z]?'
             if(motorcycle.license_plate == False or motorcycle.license_plate == '' or re.match(regex,motorcycle.license_plate) is None):
                 raise ValidationError('License plate format incorrect')
+
+    
 
 
 

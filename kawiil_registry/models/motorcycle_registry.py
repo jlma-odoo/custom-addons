@@ -44,7 +44,7 @@ class MotorcycleRegistry(models.Model):
     def _check_vin_number(self):
         for motorcycle in self:
             regex = r'^[A-Z]{4}[0-9]{2}[0-9A-Z]{2}[0-9]{6}$'
-            if(motorcycle.vin== False or motorcycle.vin == '' or re.match(regex,motorcycle.vin)==None):
+            if(motorcycle.vin== False or motorcycle.vin == '' or re.match(regex,motorcycle.vin) is None):
                 raise ValidationError('Vin format incorrect')
 
 
@@ -52,7 +52,7 @@ class MotorcycleRegistry(models.Model):
     def _check_license_plate(self):
         for motorcycle in self:
             regex = r'[A-Z][A-Z]?[A-Z]?[A-Z]?[0-9][0-9]?[0-9]?[A-Z]?[A-Z]?'
-            if(motorcycle.license_plate == False or motorcycle.license_plate == '' or re.match(regex,motorcycle.license_plate)==None):
+            if(motorcycle.license_plate == False or motorcycle.license_plate == '' or re.match(regex,motorcycle.license_plate) is None):
                 raise ValidationError('License plate format incorrect')
 
 

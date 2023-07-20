@@ -19,11 +19,7 @@ class MotorcycleRegistry(models.Model):
     make = fields.Char(compute='_compute_registry_data')
     model = fields.Char(compute='_compute_registry_data')
     year = fields.Char(compute='_compute_registry_data')
-    '''taxes_id = fields.Many2many('account.tax', 'motorcycle_taxes_rel_', 'motorcycle_id', 'tax_id', help="Default taxes used when selling the product.", string='Customer Taxes',
-        domain=[('type_tax_use', '=', 'sale')], default=lambda self: self.env.company.account_sale_tax_id)
-    supplier_taxes_id = fields.Many2many('account.tax', 'motorcycle_supplier_taxes_rel', 'motorcycle_id', 'tax_id', string='Vendor Taxes', help='Default taxes used when buying the product.',
-        domain=[('type_tax_use', '=', 'purchase')], default=lambda self: self.env.company.account_purchase_tax_id)
-    '''
+   
 
 
     @api.depends('vin')

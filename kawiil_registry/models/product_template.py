@@ -9,3 +9,14 @@ class ProductTemplate(models.Model):
                 type_mapping = super()._detailed_type_mapping()
                 type_mapping['motorcycle'] = 'product'
                 return type_mapping
+
+        horsepower = fields.Float()
+        top_speed = fields.Float()
+        torque = fields.Float()
+        battery_capacity = fields.Float()
+        charge_time = fields.Float()
+        range = fields.Float()
+        curb_weight = fields.Float()
+        make = fields.Char()
+        model =n fields.Char()
+        

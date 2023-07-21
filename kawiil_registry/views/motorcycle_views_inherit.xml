@@ -14,7 +14,6 @@
                             <field name="make"/>
                             <field name="model"/>
                             <field name="curb_weight"/>
-                            <field name="model"/>
                             <field name="year"/>                        
                             
                     </group>

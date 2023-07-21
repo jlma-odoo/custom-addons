@@ -10,7 +10,7 @@
     'website' : 'https://github.com/jlma-odoo/custom-addons',
     'category' : 'Kawiil/custom',
     'application' : 'True',
-    'depends' : ['base','stock'],
+    'depends' : ['base','stock','website'],
     'data' : [
         'security/motorcycle_registry_groups.xml',
         'security/ir.model.access.csv',
@@ -19,6 +19,7 @@
         'views/motorcycle_registry_menuitems.xml',
         'views/motorcycle_views.xml',
         'views/motorcycle_views_inherit.xml',
+        'views/motorcycle_registry_web_templates.xml',
 
     ],
     'demo' : [

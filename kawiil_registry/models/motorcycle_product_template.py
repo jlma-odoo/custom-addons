@@ -14,7 +14,7 @@ class ProductTemplate(models.Model):
         horsepower = fields.Float()
         top_speed = fields.Float()
         torque = fields.Float()
-        battery_capacity = fields.Float()
+        battery_capacity = fields.Char()
         charge_time = fields.Float()
         range = fields.Float()
         curb_weight = fields.Float()

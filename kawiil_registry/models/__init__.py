@@ -1,2 +1,2 @@
 from . import motorcycle_registry
-from . import product_template
+from . import motorcycle_product_template

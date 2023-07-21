@@ -7,29 +7,35 @@
                 <div class="oe_structure">
                     <div class="container">
                         <h1>Motorcycle Comparison</h1>
-                        <t t-foreach="motorcycles" t-as="motorcycle">
-                            <div>
-                                <h3>
-                                    <t t-esc="motorcycle.model"/>
-                                </h3>
-                                <t t-esc="motorcycle.year"/>
-                                <t t-esc="motorcycle.horsepower"/>
-                                <t t-esc="motorcycle.torque"/>
-                                <t t-esc="motorcycle.top_speed"/>
-                                <t t-esc="motorcycle.battery_capacity"/>
-                                <t t-esc="motorcycle.curb_weight"/>
-                            </div>
-                            
-                            
-
-                        </t>
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <t t-foreach="motorcycles" t-as="motorcycle">
+                                <div class="col">
+                                    <div class="card mb-3">
+                                        <div class="row g-0">
+                                            <div class="col-md-4 image-container">
+                                                <img t-if="motorcycle.image_1920" t-att-src="image_data_uri(motorcycle.image_1920)" class="img-fluid rounded-start s_media_list_img h-100 w-100" alt="" loading="lazy"/>    
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><t t-esc="motorcycle.model"/></h5>
+                                                    <p class="card-text">
+                                                        <p>Launch date: <t t-esc="motorcycle.year"/></p>
+                                                        <p>Horse Power: <t t-esc="motorcycle.horsepower"/></p>
+                                                        <p>Torque: <t t-esc="motorcycle.torque"/></p>
+                                                        <p>Top speed: <t t-esc="motorcycle.top_speed"/></p>
+                                                        <p>Battery capacity: <t t-esc="motorcycle.battery_capacity"/></p>
+                                                        <p>Curb weight: <t t-esc="motorcycle.curb_weight"/></p>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
                     </div>
-
                 </div> 
-
             </t>            
         </template>
-        
-    
     </data>
 </odoo>

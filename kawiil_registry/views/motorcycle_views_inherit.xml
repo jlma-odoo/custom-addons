@@ -13,7 +13,6 @@
                             <separator string="Motorcycle information"/>
                             <field name="make"/>
                             <field name="model"/>
-                            <field name="year"/>
                             <field name="curb_weight"/>
                             <field name="model"/>
                             <field name="year"/>                        
@@ -28,7 +27,12 @@
                             
                     </group>
                 </group>
-                 
+                  <group>
+                            <separator string="Power information"/>
+                            <field name="battery_capacity"/>
+                            <field name="charge_time"/>
+                            <field name="range"/>
+                    </group>
             </page>
             
         </xpath>

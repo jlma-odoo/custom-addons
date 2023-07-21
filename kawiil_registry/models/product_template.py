@@ -20,4 +20,5 @@ class ProductTemplate(models.Model):
         curb_weight = fields.Float()
         make = fields.Char()
         model = fields.Char()
+        year = fields.Date()
         

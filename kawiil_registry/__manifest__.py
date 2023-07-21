@@ -18,6 +18,8 @@
         'data/motorcycle_data.xml',
         'views/motorcycle_registry_menuitems.xml',
         'views/motorcycle_views.xml',
+        'views/motorcycle_views_inherit.xml',
+
     ],
     'demo' : [
         'demo/demo_data.xml',
